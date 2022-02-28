@@ -6,7 +6,9 @@ def hello_world(request):
     return render(request, 'frankiesapp/hello_world.html')
 
 def add_product(request):
+    product_object = Product.objects.all()
     if(request.method=="POST"):
+        product_id = request.POST.get('product_id')
         product_name = request.POST.get('product_name')
         product_description = request.POST.get('product_description')
         product_image = request.POST.get('product_imagee')
@@ -16,10 +18,7 @@ def add_product(request):
         product_type = request.POST.get('product_type')
         product_visibility = request.POST.get('product_visibility')
         product_colors = request.POST.get('product_colors')
-        if product_visibility == 'on':
-            product_visibility == True
-        else:
-            product_visibility == False
+
         try:
             Product.objects.create(product_name=product_name, 
             product_description=product_description, 
@@ -32,7 +31,7 @@ def add_product(request):
             product_colors=product_colors)
 
             message = "Product created successfully"
-            return redirect(f'/Product?message={message}')
+            return render(request, 'frankiesapp/add_product.html', {'message':message})
     
         except Exception as e:
             message = e
