@@ -18,7 +18,7 @@
                 <form method="POST" action="{% url 'add_product' %}" style="padding-left: 10; padding-right: 10;">{% csrf_token %}
                     <div class="d-flex flex-column flex-fill">
                         <label for="">Product ID:</label><br>
-                        <input name="product_id" type="text" style="max-width:200px" required=""><br>
+                        <input name="product_id" type="text" class="form-control" style="max-width:200px" required=""><br>
                     </div>
                 <div class="d-flex flex-column flex-fill">
                     <label for="">Product Name:</label><br>
@@ -75,31 +75,31 @@
                     </box>
                     <box style=" background-color: rgb(255, 255, 255); width: 30px; border: 1px solid rgb(0, 0, 0); padding: 10px; margin: 10px;">
                         <label>Color 2</label>
-                        <input type="color" id="color2" name="product_colors" value="#ff0000">
+                        <input type="color" id="color2" name="product_colors2" value="#ff0000">
                     </box>
                     <box style=" background-color: rgb(255, 255, 255); width: 30px; border: 1px solid rgb(0, 0, 0); padding: 10px; margin: 10px;">
                         <label>Color 3</label>
-                        <input type="color" id="color3" name="product_colors" value="#ff0000">
+                        <input type="color" id="color3" name="product_colors3" value="#ff0000">
                     </box>
                     <box style=" background-color: rgb(255, 255, 255); width: 30px; border: 1px solid rgb(0, 0, 0); padding: 10px; margin: 10px;">
                         <label>Color 4</label>
-                        <input type="color" id="color4" name="product_colors" value="#ff0000">
+                        <input type="color" id="color4" name="product_colors4" value="#ff0000">
                     </box>
                     <box style=" background-color: rgb(255, 255, 255); width: 30px; border: 1px solid rgb(0, 0, 0); padding: 10px; margin: 10px;">
                         <label>Color 5</label>
-                        <input type="color" id="color5" name="product_colors" value="#ff0000">
+                        <input type="color" id="color5" name="product_colors5" value="#ff0000">
                     </box>
                     <box style=" background-color: rgb(255, 255, 255); width: 30px; border: 1px solid rgb(0, 0, 0); padding: 10px; margin: 10px;">
                         <label>Color 6</label>
-                        <input type="color" id="color6" name="product_colors" value="#ff0000">
+                        <input type="color" id="color6" name="product_colors6" value="#ff0000">
                     </box>
                     <box style=" background-color: rgb(255, 255, 255); width: 30px; border: 1px solid rgb(0, 0, 0); padding: 10px; margin: 10px;">
                         <label>Color 7</label>
-                        <input type="color" id="color7" name="product_colors" value="#ff0000">
+                        <input type="color" id="color7" name="product_colors7" value="#ff0000">
                     </box>
                     <box style=" background-color: rgb(255, 255, 255); width: 30px; border: 1px solid rgb(0, 0, 0); padding: 10px; margin: 10px;">
                         <label>Color 8</label>
-                        <input type="color" id="color8" name="product_colors" value="#ff0000">
+                        <input type="color" id="color8" name="product_colors8" value="#ff0000">
                     </box>
                 </div><br>
                 <input type="hidden" name="message" value="Product created successfully">
