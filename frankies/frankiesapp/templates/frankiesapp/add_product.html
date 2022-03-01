@@ -45,7 +45,7 @@
                         {% for material in materials %}
                             <option value="{{material.id}}">{{material.name}}</option>
                         {% endfor %} 
-                        <option value="wat" name="product_materialsused">1</option> <input name="quantity" type="number" style="margin-left: 5px">pcs</input>
+                        <option value="material 1" name="product_materialsused">1</option> <input name="quantity" type="number" min="0" style="margin-left: 5px">pcs</input>
                     </select>
                 </div>
                 <div class="d-flex flex-column flex-fill">
@@ -57,11 +57,11 @@
                 </div>
                 <div class="d-flex flex-column flex-fill">
                     <label for="">Product Quantity:</label><br>
-                    <input name="product_quantity" type="number" style="max-width:200px" required="">
+                    <input name="product_quantity" type="number" min="0" style="max-width:200px" required="">
                 </div>
                 <div class="d-flex flex-column flex-fill">
                     <label for="">Product Price:</label><br>
-                    <input name="product_unitprice" type="number" style="max-width:200px" required=""></input>
+                    <input name="product_unitprice" type="number" min="0" style="max-width:200px" required=""></input>
                 </div>
                 <div class="d-flex flex-column flex-fill">
                     <label for="">Product Type:</label><br>

@@ -1,15 +1,15 @@
 from django.db import models
 
 # Create your models here.
-class Product(models.Model): #FIX THIS JANSEN CHANGE THE CHARFIELDS
+class Product(models.Model): 
     product_id = models.CharField(max_length=300, primary_key=True, unique=True)
     #product_collection = models.ForeignKey(Product_Collection, on_delete=models.CASCADE) Wait for CJ's class or remove 
     product_name = models.CharField(max_length=300)
     product_description = models.TextField(max_length=300)
     product_image = models.FileField(null=True, blank=True) #upload and display image
-    product_materialsused = models.CharField(max_length=300) #collection of materials
-    product_quantity = models.IntegerField()
-    product_unitprice = models.IntegerField()
+    product_materialsused = models.CharField(max_length=300) 
+    product_quantity = models.PositiveIntegerField()
+    product_unitprice = models.PositiveIntegerField()
     product_type = models.CharField(max_length=300) #list of copllections but can add
     product_visibility = models.BooleanField(max_length=300) #Visibility switch
     product_colors1 = models.CharField(max_length=300) #Probably a list of colors
@@ -22,7 +22,7 @@ class Product(models.Model): #FIX THIS JANSEN CHANGE THE CHARFIELDS
     product_colors8 = models.CharField(max_length=300)
 
 
-    def __str__(self):#DONT KNOW IF THIS IS NEEDED
+    def __str__(self):
         return f"{self.product_id}, {self.product_name}, {self.product_description}, {self.product_image}, {self.product_materialsused}, {self.product_quantity}, {self.product_unitprice}, {self.product_type}, {self.product_visibility}, {self.product_colors1}, {self.product_colors2}, {self.product_colors3}, {self.product_colors4}, {self.product_colors5}, {self.product_colors6}, {self.product_colors7}, {self.product_colors8}, "
 
 class Material(models.Model): 
