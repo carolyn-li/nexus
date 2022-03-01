@@ -16,65 +16,45 @@
                     <h1>Add Product</h1>
                 </div>
                 <form method="POST" action="{% url 'add_product' %}" style="padding-left: 10; padding-right: 10;">{% csrf_token %}
-                    <div class="d-flex flex-column flex-fill">
-                        <label for="">Product ID:</label><br>
-                        <input name="product_id" type="text" class="form-control" style="max-width:200px" required=""><br>
-                    </div>
-                <div class="d-flex flex-column flex-fill">
+                <div class="column">
+                    <label for="">Product ID:</label><br>
+                    <input name="product_id" type="text" class="form-control" style="max-width:200px" required=""><br><br>
+    
                     <label for="">Product Name:</label><br>
-                    <input name="product_name" type="text" style="max-width:200px" required=""><br>
-                </div>
-                <div class="d-flex flex-column flex-fill">
+                    <input name="product_name" type="text" style="max-width:200px" required=""><br><br>
+                
+                
                     <label for="">Product Description:</label><br>
-                    <textarea name="product_description" type="text" style="max-width:200px" required=""></textarea><br>
-                </div>
-                <div class="d-flex flex-column flex-fill">
-                    <label for="">Product Image:</label><br>
-                    <input type="file"  accept="image/*" name="product_image" id="imgfile"  onchange="loadFile(event)">
-                    <p><img id="output" width="200" /></p>
-                        <script>
-                        var loadFile = function(event) {
-                            var image = document.getElementById('output');
-                            image.src = URL.createObjectURL(event.target.files[0]);
-                        };
-                        </script>
-                </div>
-                <div class="d-flex flex-column flex-fill">
+                    <textarea name="product_description" type="text" style="max-width:200px" required=""></textarea><br><br>
+                
+               
                     <label for="">Materials Used:</label><br>
                     <select class="multiple" name="product_materialsused" class="form-select" required="" style="padding-right: 10px">
                         {% for material in materials %}
                             <option value="{{material.id}}">{{material.name}}</option>
                         {% endfor %} 
                         <option value="material 1" name="product_materialsused">1</option> <input name="quantity" type="number" min="0" style="margin-left: 5px">pcs</input>
-                    </select>
-                </div>
-                <div class="d-flex flex-column flex-fill">
+                    </select><br><br>
+                
                     <label for="">Product Collection:</label><br>
                     <select name="product_type" class="form-select" required="">
                         <option value="Bracelet">Bracelet</option>
                         <option value="Necklace">Necklace</option>
-                    </select>
-                </div>
-                <div class="d-flex flex-column flex-fill">
+                    </select><br><br>
+                
                     <label for="">Product Quantity:</label><br>
-                    <input name="product_quantity" type="number" min="0" style="max-width:200px" required="">
-                </div>
-                <div class="d-flex flex-column flex-fill">
+                    <input name="product_quantity" type="number" min="0" style="max-width:200px" required=""><br><br>
+               
                     <label for="">Product Price:</label><br>
-                    <input name="product_unitprice" type="number" min="0" style="max-width:200px" required=""></input>
-                </div>
-                <div class="d-flex flex-column flex-fill">
+                    <input name="product_unitprice" type="number" min="0" style="max-width:200px" required=""></input><br><br>
+                
                     <label for="">Product Type:</label><br>
                     <select name="product_type" class="form-select" required="">
                             <option value="Customizable">Customizable</option>
                             <option value="Default">Not customizable</option>
-                    </select>
-                </div>
-                <div class="d-flex flex-column flex-fill">
-                    <label for="">Product Visibility:</label>
-                    <label style="padding-right: 5px">Invisible</label><label class="switch" display=""><input check="checked" type="checkbox" name="product_visibility" value="True"><span class="slider round"></span></label><label style="padding-left: 5px">Visible</label>
-                </div>
-                <div class="d-flex flex-column flex-fill" style="padding-top: 5px;">
+                    </select><br><br>
+                    
+                    <div class="split down">
                     <label for="">Product Colors:</label><br><br>
                     <box style=" background-color: rgb(255, 255, 255); width: 30px; border: 1px solid rgb(0, 0, 0); padding: 10px; margin: 10px;">
                         <label>Color 1</label>
@@ -107,10 +87,28 @@
                     <box style=" background-color: rgb(255, 255, 255); width: 30px; border: 1px solid rgb(0, 0, 0); padding: 10px; margin: 10px;">
                         <label>Color 8</label>
                         <input type="color" id="color8" name="product_colors8" value="#ff0000">
-                    </box>
-                </div><br>
+                    </box><br>
+                    <a href="{% url 'add_product' %}"><button class="btn btn-secondary my-4">Add Product</button></a>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <label for="">Product Image:</label><br>
+                    <input type="file"  accept="image/*" name="product_image" id="imgfile"  onchange="loadFile(event)">
+                    <p><img id="output" width="200" /></p>
+                        <script>
+                        var loadFile = function(event) {
+                            var image = document.getElementById('output');
+                            image.src = URL.createObjectURL(event.target.files[0]);
+                        };
+                        </script>
+                
+                    <label for="">Product Visibility:</label>
+                    <label style="padding-right: 5px">Invisible</label><label class="switch" display=""><input check="checked" type="checkbox" name="product_visibility" value="True"><span class="slider round"></span></label><label style="padding-left: 5px">Visible</label>
+                </div>
+                
                 <input type="hidden" name="message" value="Product created successfully">
 
-                <a href="{% url 'add_product' %}"><button class="btn btn-secondary my-4">Add Product</button></a>
+                
                 </form>
                 {% endblock %}
