@@ -51,7 +51,7 @@
                     <label for="">Product Type:</label><br>
                     <select name="product_type" class="form-select" required="">
                             <option value="Customizable">Customizable</option>
-                            <option value="Default">Not customizable</option>
+                            <option value="Not customizable">Not customizable</option>
                     </select><br>
                     <div class="row" id="bottom">
                         <label for="">Product Colors:</label><br><br>
@@ -95,7 +95,7 @@
                     <label for="">Product Visibility:</label>
                     <label class="switch" display=""><input check="checked" type="checkbox" name="product_visibility" value="True"><span class="slider round"></span></label><br>
                     <label for="">Product Image:</label><br>
-                    <input type="file"  accept="image/*" name="product_image" id="imgfile"  onchange="loadFile(event)">
+                    <input type="file"  accept="image/*" name="product_image" id="product_image"  onchange="loadFile(event)">
                     <p><img id="output" width="200" /></p>
                         <script>
                         var loadFile = function(event) {
