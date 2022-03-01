@@ -3,39 +3,8 @@
 <html>
     <head>
         <title>Frankie's in Style</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
-        <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.css' %}">
-        <link rel="stylesheet" href="{% static '/bootstrap/css/custom.css' %}">
-
-        <script src="{% static '/bootstrap/jquery-3.4.1.slim.min.js' %}"></script>
-        <script src="{% static '/bootstrap/popper.min.js' %}"></script>
-        <script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>
-        
     </head>
     <style>
-        .header {
-          background-color: #000000;
-          padding: 7px;
-          text-align: center;
-        }
-        .body {
-            margin: 0;
-          background: #898888;
-          font: 400 24px "Arial";
-          padding: 20px;
-        }
-
-        .nav {
-          background-color: rgb(255, 255, 255);
-        }
-
-        .box{
-        background-color: lightgrey;
-        width: 300px;
-        border: 15px solid green;
-        padding: 50px;
-        margin: 20px;
-        }
         .switch {
         position: relative;
         display: inline-block;
@@ -88,8 +57,7 @@
         input:checked + .slider:before {
         -webkit-transform: translateX(26px);
         -ms-transform: translateX(26px);
-        transform: True;
-        
+        transform: True; 
         }
 
         /* Rounded sliders */
@@ -100,6 +68,43 @@
         .slider.round:before {
         border-radius: 40%;
         }
+        .columns {
+        Width: 100%;
+        }
+
+        .column {
+        width:100%;
+        }
+
+        @media (min-width: 48em) {
+        .column {
+            width: 50%;
+            float:left;
+        }
+        }
+
+        .columns {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        #top {
+        top: 0;
+		position: fixed;
+		left: 0;
+		right: 0;
+		height: 80%;
+        }
+        
+        #bottom {
+        bottom: 0;
+		position: fixed;
+		left: 0;
+		right: 0;
+		height: 20%;
+        }
+
         </style>
     <body>
 
