@@ -5,6 +5,15 @@ from .models import *
 def hello_world(request):
     return render(request, 'frankiesapp/hello_world.html')
 
+
+#USER VIEW
+def view_products(request):
+    product_objects = Product.objects.all
+    return render(request, 'frankiesapp/view_products.html',{'products':product_objects} )
+
+
+#ADMIN VIEW
+
 def add_product(request):
     if(request.method=="POST"):
         product_id = request.POST.get('product_id')
