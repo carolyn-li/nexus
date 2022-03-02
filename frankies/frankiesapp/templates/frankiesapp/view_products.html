@@ -32,15 +32,19 @@
     <div class="col-3">
         {% for p in products %} 
         <div class="card" style="width: 18rem;">
-            <img src = "frankies\{{p.product_image}}" class="card-img-top w-100"/> 
-            <div class="card-body">
+
+            <!-- <div class="card-block stretched-link text-decoration-none" href="#"> -->
+                <img src = "..." class="card-img-top w-100"/> 
+                <div class="card-body">
+                    <h5 class="card-title"> {{p.product_name}} </h5>
+                    <h6 class="card-subtitle mb-2 text-muted"> {{p.product_unitprice}} </h6>
+                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                    <a href="#" class="btn btn-primary">Customize</a>
                 
-                <h5 class="card-title"> {{p.product_name}} </h5>
-                <h6 class="card-subtitle mb-2 text-muted"> {{p.product_unitprice}} </h6>
-                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-            </div>
+                </div>
+
+            <!-- </div> -->
+
         </div>
         {% endfor %}
     </div>
