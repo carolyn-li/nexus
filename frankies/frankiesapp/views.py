@@ -78,7 +78,6 @@ def delete_productcollection(request,pk):
 
 def view_product(request):
     admin_productlist = Product.objects.all()
-    
     return render(request, 'frankiesapp/admin_productlist.html', {'product':admin_productlist})
 
 def add_product(request):
@@ -128,14 +127,11 @@ def add_product(request):
 
 
             message = "Product created successfully"
-            return render(request, 'frankiesapp/add_product.html', {'message':message})
+            return redirect("view_product")
     
         except Exception as e:
             message = e
             context = {'message':message}
             return render(request, 'frankiesapp/add_product.html', context)
-
-    else:
-        return render(request, 'frankiesapp/add_product.html', {'pc':pc})
 
     return render(request, 'frankiesapp/add_product.html')
