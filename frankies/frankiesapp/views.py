@@ -13,6 +13,10 @@ def view_products(request):
 
 
 #ADMIN VIEW
+def view_product(request):
+    admin_productlist = Product.objects.all()
+    
+    return render(request, 'frankiesapp/admin_productlist.html', {'product':admin_productlist})
 
 def add_product(request):
     if(request.method=="POST"):

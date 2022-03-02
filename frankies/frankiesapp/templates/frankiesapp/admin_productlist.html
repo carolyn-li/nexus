@@ -1,0 +1,50 @@
+{% extends 'frankiesapp/base.html' %}
+{% load static %}
+ 
+{% block content %}
+<div class="col main" style="padding-top:20px;">
+    <div class="row">
+        <div class="col-9 justify-content-start"><h2 id="mainlabel">FRANKIE'S IN STYLE PRODUCTS</h2></div>
+        <div class="col-3">
+            <nav class="nav nav-fill justify-content-end">
+                <a class="nav-link" href="{% url 'add_product' %}">
+                    <button type="button" class="btn btn-custom" id="buttonmain">
+                        <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        Add Product</button>
+                </a>
+            </nav>
+        </div>
+    <table class="table table-striped rowNumbers" style="counter-reset: step; position:relative">
+        <thead id="tablehead" class="thead-custom" >
+            <tr>
+                <td></td>
+                <td>Image</td>
+                <td>Name</td>
+                <td>Price</td>
+                <td>Availability</td>
+                <td>Show Product</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody >
+            {% for x in product %}
+            <tr>
+                <td></td>
+                <td> <img src="{{x.product_image}}"> </td>
+                <td>{{x.product_name}}</td>
+                <td>PHP {{x.product_unitprice}}</td>
+                {% if product_quantity %}
+                <td>Available</td> 
+                {% else %}
+                <td>Unavailable</td>
+                {%endif%}
+                <td>{{x.product_visibility}}</td>
+                <td>Delete</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+{% endblock %}
+    
