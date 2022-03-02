@@ -100,8 +100,8 @@
                                 product_image = newfile.product_image.name()      
                             };
                             </script>
-                        <a href="{% url 'add_product' %}"><button class="btn btn-secondary my-4" style="margin-left: 10px">Add Product</button></a>
-                        <a onclick="window.history.go(-1); return false;"><button class="btn btn-secondary">Cancel</button></a>
+                        <button type="submit" class="btn btn-secondary my-4" style="margin-left: 10px">Add Product</button>
+                        <a href="{% url 'view_product' %}"><button class="btn btn-secondary">Cancel</button></a>
                 </div>
             
                 <input type="hidden" name="message" value="Product created successfully">
