@@ -23,12 +23,18 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.hello_world, name='hello_world'),
+
+    #ADMIN
     path('add_product', views.add_product, name='add_product'),
     path('add_productcollection', views.add_productcollection, name='add_productcollection'),
     path('remove_productcollection/<int:pk>', views.delete_productcollection, name='delete_productcollection'),
     path('update_productcollection/<int:pk>', views.update_productcollection, name='update_productcollection'),
+    path('adminview_products', views.view_product, name="view_products"),
+
+    #CUSTOMER
     path('view_products', views.view_products, name='view_products'),
-    path('adminview_products', views.view_product, name="view_products")
+    path('view_productdetails/<int:pk>/', views.view_customer, name='view_customer'),
+    
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
