@@ -2,6 +2,8 @@
 {% load static %}
  
 {% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <div class="col main" style="padding-top:20px;">
     <div class="row">
         <div class="col-9 justify-content-start"><h2 id="mainlabel">FRANKIE'S IN STYLE PRODUCTS</h2></div>
@@ -39,12 +41,15 @@
                 <td>Unavailable</td>
                 {%endif%}
                 <td>{{x.product_visibility}}</td>
-                <td>Delete</td>
+                <td>
+                    <a href=""><button type="button" class="btn btn-secondary">Edit</button></a>
+                    
+                </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 </div>
-</div>
+
 {% endblock %}
     
