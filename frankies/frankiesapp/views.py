@@ -10,12 +10,14 @@ def hello_world(request):
 
 #CUSTOMER VIEW
 def view_products(request):
-    product_objects = Product.objects.all
-    return render(request, 'frankiesapp/view_products.html',{'products':product_objects} )
+    product_objects = Product.objects.all()
+    product_collection = Product_Collection.objects.all()
+    return render(request, 'frankiesapp/view_products.html',{'products':product_objects, 'product_collection':product_collection} )
+
 
 def view_productdetails(request, pk):
     productdetails = get_object_or_404(Product, pk=pk)
-    return render(request,'frankiesapp/view_productsdetails.html',{'p':productdetails})
+    return render(request,'frankiesapp/view_productdetails.html',{'p':productdetails})
 
 
 #ADMIN VIEW

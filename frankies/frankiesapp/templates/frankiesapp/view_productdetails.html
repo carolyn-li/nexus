@@ -1,0 +1,63 @@
+{% extends 'frankiesapp/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="row">
+
+    <div class="col-6">
+        <div class="row mt-8">
+            <a href="{% url 'view_products' %}"> < Return to products </a> 
+            
+        </div>
+        <div class="row mt-8">
+            <img src="{{p.product_image.url}}" class="img-fluid" alt="Responsive image">
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="card mt-8">
+            <div class="card-header">
+                <h2 class="card-title"> {{p.product_name}}</h2> 
+            </div>
+            <div class="card-body">
+                <p>
+                    <h5> ₱ {{p.product_unitprice}} </h5>
+                </p>
+                <p>
+                    <a href="#" class="btn btn-primary btn-sm">Customize</a>
+                </p>
+                <p>
+                    Welcome to Frankie's in Style!
+                </p>
+                <p>
+                    <b> Description </b>
+                </p>
+                <p>
+                    {{p.product_description}}
+                </p>
+
+                <p>
+                    <b> Materials used: </b> {{p.product_materialsused}}
+                </p>
+            
+                
+            </div>
+        </div>
+        <div class="row">
+           
+            <form>
+                <div class="form-row align-items-center">
+                  <div class="col sm-3">
+                    <input type="text" class="form-control" placeholder="Quantity">
+                  </div>
+            </form>
+
+            <a href="#" class="btn btn-primary btn mt-8">Add to Cart</a>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

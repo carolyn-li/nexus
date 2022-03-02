@@ -20,12 +20,12 @@
 
     <div class="col-3"> 
         <ul class="nav flex-column">
+            {% for p in product_collection %} 
             <li class="nav-item">
-                <h5><a class="nav-link" href=""> Necklaces </a></h5>
+                <h5><a class="nav-link" href=""> {{p.productcollection_name}} </a></h5>
             </li>
-            <li class="nav-item">
-                <h5><a class="nav-link" href=""> Earrings </a></h5>
-            </li>
+        
+            {% endfor %}
         </ul>
     </div>
     
@@ -36,13 +36,13 @@
             <!-- <div class="card-block stretched-link text-decoration-none" href="#"> -->
                 <img src = "{{p.product_image.url}}" class="card-img-top w-100" /> 
                 <div class="card-body">
-                    <a href="#" class="card-link">
+                    <a href="{% url 'view_productdetails' pk=p.pk %}" class="card-link">
                         <h5>{{p.product_name}}</h5>
                     </a>
-                    <h6 class="card-subtitle mb-2 text-muted"> {{p.product_unitprice}} </h6>
+                    <h6 class="card-subtitle mb-2 text-muted">₱ {{p.product_unitprice}} </h6>
                 </div>
                 <div class="card-footer text-muted">
-                    <a href="#" class="btn-sm btn-primary">Customize</a>
+                    <a href="{% url 'view_productdetails' pk=p.pk %}" class="btn-sm btn-primary">Customize</a>
                 </div>
                 
             <!-- </div> -->
