@@ -42,8 +42,8 @@
                 {%endif%}
                 <td>{{x.product_visibility}}</td>
                 <td>
-                    <a href=""><button type="button" class="btn btn-secondary">Edit</button></a>
-                    
+                    <a href="{% url 'update_product' pk=x.pk %}"><button type="button" class="btn btn-secondary">Edit</button></a>
+                
                 </td>
             </tr>
             {% endfor %}
