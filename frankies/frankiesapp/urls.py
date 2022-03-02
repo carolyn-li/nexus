@@ -33,7 +33,7 @@ urlpatterns = [
 
     #CUSTOMER
     path('view_products', views.view_products, name='view_products'),
-    path('view_productdetails/<int:pk>/', views.view_customer, name='view_customer'),
+    path('view_productdetails/<int:pk>/', views.view_productdetails, name='view_productdetails'),
     
 ]
 if settings.DEBUG:
