@@ -6,12 +6,12 @@ class Product(models.Model):
     #product_collection = models.ForeignKey(Product_Collection, on_delete=models.CASCADE) Wait for CJ's class or remove 
     product_name = models.CharField(max_length=300)
     product_description = models.TextField(max_length=300)
-    product_image = models.FileField(null=True, blank=True) #upload and display image
+    product_image = models.FileField(null=True, blank=True, upload_to='toProcess/') #upload and display image
     product_materialsused = models.CharField(max_length=300) 
     product_quantity = models.PositiveIntegerField()
     product_unitprice = models.PositiveIntegerField()
     product_type = models.CharField(max_length=300) #list of copllections but can add
-    product_visibility = models.BooleanField(max_length=300) #Visibility switch
+    product_visibility = models.CharField(max_length=300) #Visibility switch
     product_colors1 = models.CharField(max_length=300) #Probably a list of colors
     product_colors2 = models.CharField(max_length=300)
     product_colors3 = models.CharField(max_length=300)
