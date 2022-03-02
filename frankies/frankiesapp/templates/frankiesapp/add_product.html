@@ -93,7 +93,11 @@
 
                 <div class="column">
                     <label for="">Product Visibility:</label>
-                    <label class="switch" display=""><input check="checked" type="checkbox" name="product_visibility" value="True"><span class="slider round"></span></label><br>
+                    <select name="product_visibility" class="form-select" required="">
+                        <option value="Visible">Visible</option>
+                        <option value="Invisible">Invisible</option>
+                </select><br>
+
                     <label for="">Product Image:</label><br>
                     <input type="file"  accept="image/*" name="product_image" id="product_image"  onchange="loadFile(event)">
                     <p><img id="output" width="200" /></p>
@@ -101,6 +105,8 @@
                         var loadFile = function(event) {
                             var image = document.getElementById('output');
                             image.src = URL.createObjectURL(event.target.files[0]);
+                            newfile = Product(product_image = request.FILES['file'])
+                            product_image = newfile.product_image.name()      
                         };
                         </script>
                 </div>
