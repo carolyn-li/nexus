@@ -34,15 +34,17 @@
         <div class="card" style="width: 18rem;">
 
             <!-- <div class="card-block stretched-link text-decoration-none" href="#"> -->
-                <img src = "..." class="card-img-top w-100"/> 
+                <img src = "..." class="card-img-top w-100" /> 
                 <div class="card-body">
-                    <h5 class="card-title"> {{p.product_name}} </h5>
+                    <a href="#" class="card-link">
+                        <h5>{{p.product_name}}</h5>
+                    </a>
                     <h6 class="card-subtitle mb-2 text-muted"> {{p.product_unitprice}} </h6>
-                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                    <a href="#" class="btn btn-primary">Customize</a>
-                
                 </div>
-
+                <div class="card-footer text-muted">
+                    <a href="#" class="btn-sm btn-primary">Customize</a>
+                </div>
+                
             <!-- </div> -->
 
         </div>
