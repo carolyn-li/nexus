@@ -37,9 +37,10 @@
                     </select><br><br>
                 
                     <label for="">Product Collection:</label><br>
-                    <select name="product_type" class="form-select" required="">
-                        <option value="Bracelet">Bracelet</option>
-                        <option value="Necklace">Necklace</option>
+                    <select name="product_collection" class="form-select" required="">
+                        {% for collection in pc %}
+                            <option value="{{collection.pk}}">{{collection.productcollection_name}}</option>
+                        {% endfor %}
                     </select><br><br>
                 
                     <label for="">Product Quantity:</label><br>

@@ -1,9 +1,20 @@
 from django.db import models
 
 # Create your models here.
+class Product_Collection(models.Model):
+    # productcollection_id = models.CharField(max_length=300, primary_key=True, unique=True)
+    productcollection_name = models.CharField(max_length=300)
+    objects = models.Manager()
+
+    def getProductColl(self):
+        return self.productcollection_name
+
+    def __str__(self):
+        return f"{str(self.pk)} - {self.productcollection_name}"
+        
 class Product(models.Model): 
     product_id = models.CharField(max_length=300, primary_key=True, unique=True)
-    #product_collection = models.ForeignKey(Product_Collection, on_delete=models.CASCADE) Wait for CJ's class or remove 
+    product_collection = models.ForeignKey(Product_Collection, on_delete=models.CASCADE, null=True) 
     product_name = models.CharField(max_length=300)
     product_description = models.TextField(max_length=300)
     product_image = models.FileField(null=True, blank=True, upload_to='toProcess/') #upload and display image

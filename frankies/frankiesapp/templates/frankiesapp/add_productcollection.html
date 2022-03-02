@@ -1,0 +1,57 @@
+{% extends 'frankiesapp/base.html' %}
+{% load static %}
+
+
+<!DOCTYPE html lang="en">
+<head>
+    <title>Add Product Collection</title>
+</head>
+<body>
+    {% block content %}
+        <div class="row">
+            {{message}}
+        </div>
+        <div class="row">
+            <!-- FORM -->
+            <form action="{% url 'add_productcollection'%}" method = "POST"> {% csrf_token %}
+
+                <!-- COLLECTION  -->
+                <h3>Add a Collection</h3>
+                {% for pc in prodColl %}
+                    <ol>
+                        <div class="row">
+                            <div class="col" id="collection_placeholder">
+                                <p id = "collection_name">
+                                    {{pc.pk}} - {{pc.productcollection_name}} 
+                                </p>
+                            </div>
+                            <div class="col">
+                                <a href="{% url 'update_productcollection' pc.pk %}" class="btn" id="update_btn" data-pc="{{pc.pk}}">Update</a>
+                            </div>
+                            <div class="col">
+                                <a href="{% url 'delete_productcollection' pc.pk %}" class="btn">Delete</a>
+                            </div>
+                        </div>
+                    </ol>
+                {% endfor %}
+                <div class="row">
+                    <div class="col">
+                        <input type="text" name="productcollection" id="productcollection" class="form-control" required>
+                    </div>
+                    <div class="col">
+                        <!-- SUBMIT BUTTON -->
+                        <input type="submit" value="Add" class="btn">
+                    </div>
+                    <div class="col">
+                        <!-- CANCEL BUTTON -->
+                        <a onclick="window.history.go(-1); return false;"><button class="btn">Cancel</button></a>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    {% endblock %}
+    <script>
+    </script>
+</body>
+</html>
