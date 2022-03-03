@@ -82,6 +82,60 @@ def view_product(request):
     admin_productlist = Product.objects.all()
     return render(request, 'frankiesapp/admin_productlist.html', {'product':admin_productlist})
 
+def delete_product(request, pk):
+    Product.objects.filter(pk=pk).delete()
+    return redirect('view_product')
+
+def update_product(request, pk):
+    o = get_object_or_404(Product, pk=pk)
+    if request.method == "POST":
+        product_id = request.POST.get('product_id')
+        product_name = request.POST.get('product_name')
+        product_collectionpk = request.POST.get('product_collection')
+        product_collection = Product_Collection.objects.get(pk=product_collectionpk)
+        product_description = request.POST.get('product_description')
+        product_image = request.POST.get('product_image')
+
+        product_materialsused = request.POST.get('product_materialsused')
+        product_quantity = request.POST.get('product_quantity')
+        product_unitprice = request.POST.get('product_unitprice')
+        product_type = request.POST.get('product_type')
+        product_visibility = request.POST.get('product_visibility')
+        product_colors1 = request.POST.get('product_colors1')
+        product_colors2 = request.POST.get('product_colors2')
+        product_colors3 = request.POST.get('product_colors3')
+        product_colors4 = request.POST.get('product_colors4')
+        product_colors5 = request.POST.get('product_colors5')
+        product_colors6 = request.POST.get('product_colors6')
+        product_colors7 = request.POST.get('product_colors7')
+        product_colors8 = request.POST.get('product_colors8')
+        
+        Product.objects.filter(pk=pk).update(
+            product_id=product_id, 
+            product_name=product_name, 
+            product_collection=product_collection,
+            product_description=product_description,
+            product_image=product_image,
+            product_materialsused=product_materialsused,
+            product_quantity=product_quantity,
+            product_unitprice=product_unitprice,
+            product_type=product_type,
+            product_visibility=product_visibility,
+            product_colors1=product_colors1,
+            product_colors2=product_colors2,
+            product_colors3=product_colors3,
+            product_colors4=product_colors4,
+            product_colors5=product_colors5,
+            product_colors6=product_colors6,
+            product_colors7=product_colors7,
+            product_colors8=product_colors8
+
+        )
+        return redirect('view_product')
+        
+    else:
+        return render(request, 'frankiesapp/update_product.html', {'o':o})
+
 def add_product(request):
     pc = Product_Collection.objects.all()
     if(request.method=="POST"):
@@ -92,7 +146,6 @@ def add_product(request):
         product_collection = Product_Collection.objects.get(pk=product_collectionpk)
         product_description = request.POST.get('product_description')
         product_image = request.POST.get('product_image')
-
         product_materialsused = request.POST.get('product_materialsused')
         product_quantity = request.POST.get('product_quantity')
         product_unitprice = request.POST.get('product_unitprice')

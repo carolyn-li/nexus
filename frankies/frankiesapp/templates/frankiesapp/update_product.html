@@ -1,0 +1,111 @@
+{% extends 'frankiesapp/base.html' %}
+{% load static %}
+
+                {% block content %}
+                {% if message == "Product added successfully" %}
+                    <p class="mt-3 alert alert-success"> {{message}}</p>
+                {% elif message != None %}
+                    <p class="mt-3 alert alert-danger">{{message}}</p>
+                {% endif %}
+                
+                <div class="card" >
+                    <div class="card-header">
+                        <h3 id="mainlabel">Update Product</h1>
+                    </div>
+                    <form method="POST" action="{% url 'update_product' pk=o.pk %}" style="padding-left: 10; padding-right: 10;">{% csrf_token %}
+                    
+                        <label for="">Product ID:</label><br>
+                        <input name="product_id" type="text" style="max-width:200px" required="" value="{{o.product_id}}"><br><br>
+                        <label for="">Product Name:</label><br>
+                        <input name="product_name" type="text" style="max-width:200px" required="" value="{{o.product_name}}"><br><br>
+                    
+                        <label for="">Product Description:</label><br>
+                        <textarea name="product_description" type="text" style="max-width:200px" required="" value="{{o.product_description}}"></textarea><br><br>
+                    
+                        
+                        <label for="">Materials Used:</label><br>
+                        <select class="multiple" name="product_materialsused" class="form-select" required="" style="padding-right: 10px">
+                            {% for material in materials %}
+                                <option value="{{material.id}}">{{material.name}}</option>
+                            {% endfor %} 
+                            <option value="material 1" name="product_materialsused">1</option> <input name="quantity" type="number" min="0" style="margin-left: 5px; max-width: 50px" value="{{o.product_quantity}}">pcs</input>
+                        </select><br><br>
+                    
+                        <label for="">Product Collection:</label><br>
+                        <select name="product_collection" class="form-select">
+                            {% for collection in pc %}
+                                <option value="{{collection.pk}}">{{collection.productcollection_name}}</option>
+                            {% endfor %}
+                        </select><br><br>
+                    
+                        <label for="">Product Quantity:</label><br>
+                        <input name="product_quantity" type="number" min="0" style="max-width:200px" required="" value="{{o.product_quantity}}"><br><br>
+                
+                        <label for="">Product Price:</label><br>
+                        <input name="product_unitprice" type="number" min="0" style="max-width:200px" required="" value="{{o.product_price}}"></input><br><br>
+                    
+                        <label for="">Product Type:</label><br>
+                        <select name="product_type" class="form-select" required="">
+                                <option value="Customizable">Customizable</option>
+                                <option value="Not customizable">Not customizable</option>
+                        </select><br><br>
+                        <label for="">Product Colors:</label><br><br>
+                        <box style=" background-color: rgb(255, 255, 255); width: 5px; border: 1px solid rgb(0, 0, 0); padding: 10px; margin: 10px;">
+                            <label>Color 1</label>
+                            <input type="color" id="color1" name="product_colors1" value="#ff0000">
+                        </box>
+                        <box style=" background-color: rgb(255, 255, 255); width: 5px; border: 1px solid rgb(0, 0, 0); padding: 10px; margin: 10px;">
+                            <label>Color 2</label>
+                            <input type="color" id="color2" name="product_colors2" value="#ff0000">
+                        </box>
+                        <box style=" background-color: rgb(255, 255, 255); width: 5px; border: 1px solid rgb(0, 0, 0); padding: 10px; margin: 10px;">
+                            <label>Color 3</label>
+                            <input type="color" id="color3" name="product_colors3" value="#ff0000">
+                        </box>
+                        <box style=" background-color: rgb(255, 255, 255); width: 5px; border: 1px solid rgb(0, 0, 0); padding: 10px; margin: 10px;">
+                            <label>Color 4</label>
+                            <input type="color" id="color4" name="product_colors4" value="#ff0000">
+                        </box>
+                        <box style=" background-color: rgb(255, 255, 255); width: 5px; border: 1px solid rgb(0, 0, 0); padding: 10px; margin: 10px;">
+                            <label>Color 5</label>
+                            <input type="color" id="color5" name="product_colors5" value="#ff0000">
+                        </box>
+                        <box style=" background-color: rgb(255, 255, 255); width: 5px; border: 1px solid rgb(0, 0, 0); padding: 10px; margin: 10px;">
+                            <label>Color 6</label>
+                            <input type="color" id="color6" name="product_colors6" value="#ff0000">
+                        </box>
+                        <box style=" background-color: rgb(255, 255, 255); width: 5px; border: 1px solid rgb(0, 0, 0); padding: 10px; margin: 10px;">
+                            <label>Color 7</label>
+                            <input type="color" id="color7" name="product_colors7" value="#ff0000">
+                        </box>
+                        <box style=" background-color: rgb(255, 255, 255); width: 5px; border: 1px solid rgb(0, 0, 0); padding: 10px; margin: 10px;">
+                            <label>Color 8</label>
+                            <input type="color" id="color8" name="product_colors8" value="#ff0000">
+                        </box><br><br>
+        
+                        <label for="">Product Visibility:</label>
+                        <select name="product_visibility" class="form-select" required="" value="{{o.product_visibility}}">
+                            <option value="Visible">Visible</option>
+                            <option value="Invisible">Invisible</option>
+                        </select><br>
+
+                        <label for="">Product Image:</label><br>
+                        <input type="file"  accept="image/*" name="product_image" id="product_image"  onchange="loadFile(event)" value="{{o.product_image}}">
+                        <p><img id="output" width="200" /></p>
+                            <script>
+                            var loadFile = function(event) {
+                                var image = document.getElementById('output');
+                                image.src = URL.createObjectURL(event.target.files[0]);
+                                newfile = Product(product_image = request.FILES['file'])
+                                product_image = newfile.product_image.name()      
+                            };
+                            </script>
+                        <button type="submit" class="btn btn-secondary my-4" style="margin-left: 10px">Add Product</button>
+                        <button class="btn btn-secondary" href="{% url 'view_products' %}">Cancel</button>
+                        <button class="btn btn-secondary" href="{% url 'delete_product' pk=o.pk%}">Delete</button>
+                </div>
+            
+                <input type="hidden" name="message" value="Product created successfully">
+                </form>
+                
+                {% endblock %}

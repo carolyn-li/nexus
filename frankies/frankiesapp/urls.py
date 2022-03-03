@@ -30,6 +30,9 @@ urlpatterns = [
     path('remove_productcollection/<int:pk>', views.delete_productcollection, name='delete_productcollection'),
     path('update_productcollection/<int:pk>', views.update_productcollection, name='update_productcollection'),
     path('adminview_products', views.view_product, name="adminview_products"),
+    path('update_product/<int:pk>/', views.update_product, name='update_product'),
+    path('delete_product/<int:pk>/', views.delete_product, name='delete_product'),
+    
 
     #CUSTOMER
     path('view_products', views.view_products, name='view_products'),
